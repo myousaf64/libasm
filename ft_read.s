@@ -15,27 +15,14 @@ ft_read:
 
 check_error:
 	neg rax
-	mov r9, rax
-	cmp rax, 0x4
-	je	call_errno
-	cmp rax, 0x0b
-	je	call_errno
-	cmp rax, 0x09
-	je	call_errno
-	cmp rax, 0x0e
-	je	call_errno
-	cmp rax, 0x16
-	je	call_errno
-	cmp rax, 0x05
-	je	call_errno
-	cmp rax, 0x15
-	je	call_errno
-	jmp fail_end
+	push rax ; save errno, align stack to 16 for the call
+	jmp call_errno
 
 
 call_errno:
 	call __errno_location wrt ..plt
-	mov [rax], r9; move specific value to location pointed by rax
+	pop rcx
+	mov [rax], ecx; move specific value to location pointed by rax
 	jmp fail_end 
 
 fail_end:

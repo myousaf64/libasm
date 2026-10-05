@@ -13,13 +13,14 @@ ft_write:
 
 check_error:
 	neg rax
-	mov r9, rax
+	push rax ; save errno, align stack to 16 for the call
 	jmp call_errno
 
 
 call_errno:
 	call __errno_location wrt ..plt
-	mov [rax], r9
+	pop rcx
+	mov [rax], ecx
 	jmp fail_end 
 
 fail_end:
