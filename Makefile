@@ -23,7 +23,7 @@ clean:
 
 PHONY += fclean
 fclean: clean
-	rm -f $(NAME) $(EXEC) $(NAME) 
+	rm -f $(NAME)
 
 PHONY += re
 re: fclean all
