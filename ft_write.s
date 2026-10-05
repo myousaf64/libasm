@@ -2,7 +2,7 @@ default rel
 
 section .text
 global ft_write
-extern ft_strlen, __errno_location
+extern __errno_location
 
 ft_write:
 	mov rax, 0x01

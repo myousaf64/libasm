@@ -4,7 +4,7 @@ default rel
 
 section .text
 global ft_read
-extern ft_strlen, __errno_location
+extern __errno_location
 
 ft_read:
 	xor rax, rax
