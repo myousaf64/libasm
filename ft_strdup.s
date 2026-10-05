@@ -1,4 +1,4 @@
-default rel ; to allow the variable declaration to be relative in the .data section
+default rel
 
 section .text
 global ft_strdup
@@ -13,7 +13,7 @@ ft_strdup:
 	call ft_strlen
 	inc rax
 	mov rdi, rax 
-	call malloc wrt ..plt ; Allow position independatand tables to external library like doing lea rdi, [rel msg]
+	call malloc wrt ..plt
 	pop rsi
 	cmp rax, 0x0
 	je end
