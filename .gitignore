@@ -1,0 +1,6 @@
+docs/
+AGENTS.md
+CLAUDE.md
+libasm.a
+*.o
+test
