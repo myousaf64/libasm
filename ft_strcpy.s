@@ -1,4 +1,3 @@
-extern ft_strlen
 section .text
 global ft_strcpy
 
